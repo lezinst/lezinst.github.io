@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="clock">
+	<head>
+		 <link rel="stylesheet" href="/node_modules/angular-material/angular-material.css">
+		 <link rel="stylesheet" href="./styles/clock.css">
+	</head>
+	<body>
+	<md-content>
+	<md-toolbar layout="row">
+		<h1 layout-padding>Tim3r</h1>
+	</md-toolbar>
+	<div layout="row" layout-sm layout-xs="column">
+		<md-card flex layout-sm="column">
+				<div id="clock-outer" ng-controller="clockControl as clock">
+					<div class="center-hands">
+						<div class="image-holder">
+							<img src="images/ios_clock.svg"  alt="clockface">
+						</div>
+						<div id="seconds">
+							<div class="line"></div>
+						</div>
+						<div id="minutes">
+							<div class="line"></div>
+						</div>
+						<div id="hours">
+							<div class="line"></div>
+						</div>
+						<div id="circle"></div>
+					</div>
+				</div>
+			</md-card>
+		<md-card flex>
+			<div ng-controller="timerControl"  >
+				<div layout-align="center" style="font-size:10em; text-align:center;">{{time}}</div>
+					<div layout-margin layout-padding>
+						<div layout-lg="row" layout-sm layout xs="column" layout-align="center">
+							<md-button flex="33"ng-click="startTimer()">start</md-button>
+							<md-button flex="33"ng-click="stopCounting()">stop</md-button>
+							<md-button flex="33" ng-click="reset()">reset</md-button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</md-card>
+	</div>
+	
+</md-content>
+	<!--inject clock app-->
+	
+	<!--dependencies for Angular Material-->
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-aria.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.8/angular-material.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>-->
+	
+	<script src="/node_modules/angular/angular.js"></script>
+	<script src="/node_modules/angular-animate/angular-animate.js"></script>
+	<script src="/node_modules/angular-material/angular-material.js"></script>
+	<script src="/node_modules/angular-aria/angular-aria.js"></script>
+ 	<script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+ 	<script src="app.js" type="text/javascript"></script>
+	<script src="alarm/timerControl.js" type="text/javascript"></script>
+	<script src="Time/clockControl.js" type="text/javascript"></script>
+	<script src="Time/clockControlService.js" type="text/javascript"></script>
+
+
+	</body>
+
+</html>

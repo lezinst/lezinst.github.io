@@ -8,18 +8,20 @@ angular.module('clock').service('clockControlService', function(){
  var secondHandTracker = 6;
  var refreshInterval;
 
-
+//we have to kill this refreshinterval variable when we want to stop the app, see below
 this.start = function(){
 	 refreshInterval = setInterval(clockMechanism,1000);		
 	}
 
-//the clock mechanism including moving the second hand and the minute hand after a complete turn ( hour not yet working)
+//the clock mechanism including moving the second hand and the minute hand after a complete turn (hour functionality TBA)
 	function clockMechanism(){
-		if(secondHand.style.transform === "rotate(354deg)") {
+		secondHand.style.transform = "rotate(" +secondHandTracker+ "deg)";
+		// if we've come full circle reset the rotation variable 'secondHandTracker'
+		if(secondHandTracker === 354){
+			console.log('secondHandTracker:', secondHandTracker);
+			secondHandTracker = 0;
 			changeMinuteHand();
 		}
-		
-		secondHand.style.transform = "rotate(" +secondHandTracker+ "deg)";
 		secondHandTracker+=6;
 
 		console.log(secondHand.style.transform);
@@ -33,15 +35,17 @@ this.start = function(){
 	}
 
 	
-
+	//stops the counting and the analog
 	this.stop = function(){
 		clearInterval(refreshInterval);
 		console.log('here');
 	}
 
+	//resets the counting
 	this.reset = function(){
 		console.log('reset made');
 		secondHand.style.transform = "rotate(0deg)";
+		//we kill the interval here. 
 		clearInterval(refreshInterval);
 		location.reload();
 

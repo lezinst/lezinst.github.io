@@ -1,3 +1,3 @@
-var app = angular.module('clock', ['ngMaterial', 'ui.router']);
+var app = angular.module('clock', ['ngMaterial']);
 
 

@@ -18,13 +18,10 @@ this.start = function(){
 		secondHand.style.transform = "rotate(" +secondHandTracker+ "deg)";
 		// if we've come full circle reset the rotation variable 'secondHandTracker'
 		if(secondHandTracker === 354){
-			console.log('secondHandTracker:', secondHandTracker);
 			secondHandTracker = 0;
 			changeMinuteHand();
 		}
 		secondHandTracker+=6;
-
-		console.log(secondHand.style.transform);
 				
 	}
 

@@ -15,8 +15,8 @@ angular.module('clock').controller('timerControl', function($interval, $scope, c
     };
 //cancels the promise returned by the $interval service every second
     $scope.stopCounting = function(){
-    clockControlService.stop(); 
-    $interval.cancel(promise);
+        clockControlService.stop(); 
+        $interval.cancel(promise);
 
     }
 //ensure interval is destroyed recommended by documentation.
